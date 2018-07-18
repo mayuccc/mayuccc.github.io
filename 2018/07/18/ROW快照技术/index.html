@@ -49,7 +49,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>Hexo - </title>
+<title>row：写时重定向快照技术 - Hexo</title>
 
 <meta name="keywords" content="">
 
@@ -120,17 +120,17 @@
 </div>
             <div class="page-title">
     <ul>
-        <li class="active">
-            <a href="/" data-name="最近文章">最近</a>
-        </li>
+        <li><a href="/">最新</a></li>
         
-        <li class="">
-            <a href="/categories/big-front-end" data-name="深度学习">深度学习</a>
-        </li>
-        
-        <li class="">
-            <a href="/categories/server-side" data-name="存储保护">存储保护</a>
-        </li>
+            
+                <li class="">
+                    <a href="/categories/big-front-end" data-name="深度学习">深度学习</a>
+                </li>
+            
+                <li class="active">
+                    <a href="/categories/server-side" data-name="存储保护">存储保护</a>
+                </li>
+            
         
         <li class="page-search">
     <form id="search" class="search-form">
@@ -171,68 +171,47 @@
     </ul>
 </div>
 <div class="main-inner">
-    
-    <!-- 首页默认取最最新文章集 -->
-    
-    
-<article class="post">
-    
-    <div class="post-header">
-        <div class="post-meta">
-            <a href="" target="_blank">
-                <strong></strong>
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="" target="_blank">
+                    <img width="48" src="" alt="avatar"/>
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="" target="_blank"></a>
+                    <span title="最后编辑于2018-07-18">2018-07-18</span>
+                </p>
+                <p></p>
+            </div>
+            <h2 class="post-title">ROW：写时重定向快照技术</h2>
+            <div class="post-meta">
+                本文总共309个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <p>#概述<br>ROW(Redirect-On-Write)，也被称之为写时重定向。ROW的实现原理与COW 非常相似，区别在于ROW对原始数据卷的首次写操作，会将新数据重定向到预留的快照卷中，而非COW一般会使用新数据将原始数据覆盖。所以，ROW快照中的原始数据依旧保留在源数据卷中，并且为了保证快照数据的完整性，在创建快照时，源数据卷状态会由读写变成只读的。</p>
+<p>#实现原理<br>创建快照时，ROW 也会 Copy 一份源数据指针表作为快照数据指针表，此时两张表的指针记录都相同的。在创建快照之后，也就是在快照时间点之后，发生了写操作，那么新数据会直接被写入到快照卷中，然后再更新源数据指针表的记录，使其指向新数据所在的快照卷地址。</p>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
             </a>
-            <em>·</em>2018-07-18
         </div>
-        <a class="post-title" href="/2018/07/18/ROW快照技术/" target="_blank" title="ROW：写时重定向快照技术">ROW：写时重定向快照技术</a>
-        <div class="post-meta">
-            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
+        
+        <div class="post-tags">Tags：
             
-                <em>·</em>
-                <a href="http://yoursite.com/tags/server-side/" target="_blank">存储保护</a>
+            <a href="/tags/server-side/">存储保护</a>
             
         </div>
-    </div>
-    <div class="post-desc">
-        ROW：写时重定向快照技术
-    </div>
-</article>
-
-
-
+        
+    </article>
     
-    
-<article class="post">
-    
-    <div class="post-header">
-        <div class="post-meta">
-            <a href="" target="_blank">
-                <strong></strong>
-            </a>
-            <em>·</em>2018-07-18
-        </div>
-        <a class="post-title" href="/2018/07/18/hello-Hexo/" target="_blank" title="hello,Hexo">hello,Hexo</a>
-        <div class="post-meta">
-            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
-            
-                <em>·</em>
-                <a href="http://yoursite.com/tags/big-front-end/" target="_blank">深度学习</a>
-            
-        </div>
-    </div>
-    <div class="post-desc">
-        hello,Hexo
-    </div>
-</article>
-
-
-
+    <p>本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
     
     
 </div>
-<!-- 分页开始 -->
-
-
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
         </div><!-- end #main-->
     </div><!-- end #body -->
     <footer class="footer">
